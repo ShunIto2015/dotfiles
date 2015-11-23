@@ -1,34 +1,33 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Customize to your needs...
 # Customize Prompt
 autoload -Uz promptinit
 promptinit
 prompt powerline
 
 # include zaw
-source /Users/shunito/zaw/zaw.zsh
-bindkey  '^R' zaw-history
-bindkey  '^o' zaw-open-file
+if [ -d ~/zaw ]; then
+	source ~/zaw/zaw.zsh
+	bindkey  '^R' zaw-history
+	bindkey  '^o' zaw-open-file
+fi
 
-# include MacVim
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
-alias vi='vim'
+# include Vim and Check OS
+# I don't think Windows(etc.. Cygwin MinGW MSYS2)
+if [ "$(uname)" == 'Darwin' ]; then
+	alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+	alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
+	alias vi='vim'
+	OS='Mac'
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+	OS='Linux'
+fi
 
 # include rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init - zsh)"
+if [ -d ~/.rbenv ]; then
+	export PATH=$HOME/.rbenv/bin:$PATH
+	eval "$(rbenv init - zsh)"
+fi
 
 # include tmuxinator
-source ~/.tmuxinator/tmuxinator.zsh
+if [ -d ~/.tmuxinator ]; then
+	source ~/.tmuxinator/tmuxinator.zsh
+fi
