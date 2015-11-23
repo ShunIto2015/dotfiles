@@ -12,12 +12,12 @@ fi
 
 # include Vim and Check OS
 # I don't think Windows(etc.. Cygwin MinGW MSYS2)
-if [ "$(uname)" == 'Darwin' ]; then
+if [ "$(uname)" = 'Darwin' ]; then
 	alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 	alias gvim='/Applications/MacVim.app/Contents/MacOS/MacVim'
 	alias vi='vim'
 	OS='Mac'
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
 	OS='Linux'
 fi
 
