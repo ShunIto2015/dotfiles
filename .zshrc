@@ -1,3 +1,6 @@
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 # Customize Prompt
 autoload -Uz promptinit
 promptinit
@@ -29,5 +32,5 @@ fi
 
 # include tmuxinator
 if [ -d ~/.tmuxinator ]; then
-	source ~/.tmuxinator/tmuxinator.zsh
+	source ./dotfiles/tmuxinator.zsh
 fi
