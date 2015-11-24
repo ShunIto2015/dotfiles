@@ -32,5 +32,5 @@ fi
 
 # include tmuxinator
 if [ -d ~/.tmuxinator ]; then
-	source ./dotfiles/tmuxinator.zsh
+	source ~/dotfiles/tmuxinator.zsh
 fi
