@@ -3,8 +3,9 @@ URxvt.saveLines: 5000
 URxvt.geometry: 120x38
 URxvt.scrollBar: false
 URxvt.allow_bold: false
-URxvt*font: xft:Ricty\ for\ Powerline:pixelsize=20:antialias=true
+URxvt*font: xft:Ricty\ for\ Powerline:size=14:antialias=true
 URxvt.intensityStyles: false
+URXvt*letterSpace: -3
 
 *background: #002b36
 !*foreground: #657b83
