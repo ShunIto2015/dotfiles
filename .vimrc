@@ -227,6 +227,17 @@ let g:lightline = {
       \}
 endif
 
+if OSTYPE == "Linux\n"
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"\u2b064":""}',
+      \ },
+      \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+      \}
+endif
+
 " vim-clang用のオプション
 let g:clang_auto = 0
 let g:clang_c_completeopt = 'menuone'
