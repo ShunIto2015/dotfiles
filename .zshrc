@@ -34,3 +34,15 @@ fi
 if [ -d ~/.tmuxinator ]; then
 	source ~/dotfiles/tmuxinator.zsh
 fi
+
+# include pyenv
+if [ -d ~/.pyenv ]; then
+	export PYENV_ROOT=$HOME/.pyenv
+	export PATH=$PYENV_ROOT/bin:$PATH
+	eval "$(pyenv init -)"
+fi
+
+#include virtualenv
+if [ -d ~/.pyenv/plugins/pyenv-virtualenv ]; then
+	eval "$(pyenv virtualenv-init -)"
+fi
